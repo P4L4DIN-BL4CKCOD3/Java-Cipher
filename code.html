@@ -46,7 +46,7 @@
                     <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="https://github.com/P4L4DIN-BL4CKCOD3">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/P4L4DIN-BL4CKCOD3/Java-Cipher">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="#">About</a>
@@ -59,22 +59,99 @@
 <!--== MAIN SECTION ==-->
 <main class="flex-shrink-0">
     <div class="container py-4 px-5 mt-5">
-        <h2 class="border-1 border-bottom border-dark">The Code for Java Cipher</h2>
+        <h2 class="border-1 border-bottom border-secondary display-6 fw-bold lh-1 mb-3 logoFont text-light">The Code for Java Cipher</h2>
         <div class="row row-cols-1 row-cols-lg-2">
             <div class="col-lg-8">
-                <pre class="line-numers">
+                <pre class="line-numbers">
                     <code class="language-javascript">
-                        //Call Hello Word
-                        function HelloWorld(){
-                        alert("Hello World");
-                        }
+                        //We start by getting the values from the page
+//To acheive this we need to a start or controller function
+
+function getValues(){
+    
+    //To get the values from the page
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+    
+    //We need to validate our input and parse them into integers
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
+    
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        
+        //Here we call generateNumbers
+        let numbers = generateNumbers(startValue, endValue);
+        
+        //Here we call displayNumbers
+        displayNumbers(numbers);
+
+    } else {
+        alert("You must enter integers");
+    }   
+}
+
+//Here we need to generate numbers from startvalue to the endvalue
+//logic function(s)
+
+function generateNumbers(sValue, eValue) {
+    
+    let numbers = [];
+    
+    //We want to get all the numbers from start to end
+    
+    for(let index = sValue; index <= eValue; index ++) {
+        
+        //This will execute in a loop until index = eValue
+        numbers.push(index);
+    }
+
+    return numbers;
+
+}
+
+//Here we want to display the numbers and mark the even numbers in bold
+//Display or view function(s)
+function displayNumbers(numbers){
+    
+    let templateRows = "";
+
+    for (let index = 0; index < numbers.length; index++) {
+        
+        let className = "even";    
+        
+        let number = numbers[index];
+
+        if(number % 2 == 0){
+                className = "even";
+        }
+        else{
+                className = "odd";
+            }
+        
+            templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>
+    
+    } 
+    
+    document.getElementById("results").innerHTML = templateRows;
+
+}
                     </code>
                 </pre>
             </div>
             <div class="col-lg-4">
-                <p>The Code is structured in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                <h5 class="mt-1 display-9 fw-bold lh-1 mb-3 logoFont text-success">function getValues</h5>
+                <p class="logoFont text-secondary">Here we need to use javascript to "Get" the values from the Html file. 
+                    We can do this with JavaScript because all the html tags are accessible, and we simply need to (id)entify them! 
+                    To do this we use "document.getElementById" to locate our html tags for startValue and endValue. <br>
+                    <br>
+                    Next, we parse our input through the integer validation process, meaning we convert our values for startValue and endValue to integers (i.e. startValue.value/endValue.value). 
+                    We can do this with the "parseInt ()" function and convert them. 
+                    As a final step we check to see if the values are in fact integers. <br>
+                <br> </p>
+                <h5 class="mt-1 display-9 fw-bold lh-1 mb-3 logoFont text-success">function generateNumbers</h5>
+                <p class="logoFont text-secondary">Hello World is a function that displays an alert with a message of "Hello World"</p>
+                <h5 class="mt-1 display-9 fw-bold lh-1 mb-3 logoFont text-success">function displayNumbers</h5>
+                <p class="logoFont text-secondary">Hello World is a function that displays an alert with a message of "Hello World"</p>
             </div>
         </div>
     </div>
@@ -94,7 +171,7 @@
                 <div class="row">
                     <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
                     <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
-                    <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
+                    <div class="col social"><a href="https://github.com/P4L4DIN-BL4CKCOD3/Java-Cipher" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
                 </div>
             </div>
         </div>
